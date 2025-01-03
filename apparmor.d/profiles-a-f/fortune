@@ -1,0 +1,13 @@
+abi <abi/4.0>,
+
+include <tunables/global>
+
+@{exec_path} = @{bin}/fortune
+profile fortune @{exec_path} {
+	include <abstractions/base>
+
+	/usr{,/local}{,/games}/share/fortunes{,/**} r,
+	owner @{user_share_dirs}/fortunes{,/**} r,
+
+	include if exists <local/fortune>
+}

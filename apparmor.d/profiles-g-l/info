@@ -1,0 +1,27 @@
+abi <abi/4.0>,
+
+include <tunables/global>
+
+@{exec_path} = @{bin}/info
+profile info @{exec_path} {
+  include <abstractions/base>
+
+  /usr/share/terminfo/** r,
+
+  @{bin}/{da,}sh rmix,
+  @{bin}/{g,{p,}l,gun}zip ix,
+  @{bin}/{un,}pigz ix, # common g{,un}zip symlink target
+  @{bin}/un{xz,zstd,lzma,compress} ix,
+  @{bin}/bunzip2 ix,
+  @{bin}/man{,db-man} Px,
+
+  # INFOPATH
+  @{system_share_dirs}/info{/*,} r,
+  owner @{user_share_dirs}/info{/*,} r,
+  # These values derived from info -x2
+  /{usr,opt,usr/local}{,/gnu}{,/share}{,/lib}/info{,/*} r,
+
+  owner @{HOME}/.infokey r,
+
+  include if exists <local/info>
+}

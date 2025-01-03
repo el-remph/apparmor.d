@@ -1,0 +1,11 @@
+abi <abi/4.0>,
+
+include <tunables/global>
+
+@{exec_path} = @{bin}/imv-msg
+profile imv-msg @{exec_path} {
+  include <abstractions/base>
+  owner @{run}/user/@{uid}/imv-*.sock w,
+
+  include if exists <local/imv-msg>
+}
