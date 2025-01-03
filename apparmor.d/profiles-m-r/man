@@ -16,10 +16,13 @@ profile man @{exec_path} {
 
   @{exec_path} mr,
 
+  @{bin}/{n,g}roff rmix,
+  @{bin}/grotty rmix,
+
   # Use a special profile when man calls anything groff-related. We only include
   # the programs that actually parse input data in a non-trivial way, not
   # wrappers such as groff and nroff, since they would need a broader profile.
-  @{bin}/eqn      rCx -> man_groff,
+  @{bin}/{,n}eqn  rCx -> man_groff,
   @{bin}/grap     rCx -> man_groff,
   @{bin}/pic      rCx -> man_groff,
   @{bin}/preconv  rCx -> man_groff,
@@ -46,9 +49,10 @@ profile man @{exec_path} {
 
   /usr/share/groff/{,**} r,
 
-  /usr/**/man/{,**} r,
+  /usr{,/local}{,/share}{,/X11R6}/man/{,**} r,
+  /opt/man/{,**} r,
   /var/**/man/{,**} r,
-  /var/cache/man/index.db rk,
+  /var/cache/man{,/**}/index.{db,bt,dir,pag} rk,
 
   /etc/man_db.conf r,
   /etc/manpath.config r,
@@ -58,7 +62,7 @@ profile man @{exec_path} {
   include if exists <local/man>
 }
 
-profile man_groff {
+profile man//man_groff {
   include <abstractions/base>
   include <abstractions/consoles>
 
@@ -85,7 +89,7 @@ profile man_groff {
   include if exists <local/man_groff>
 }
 
-profile man_filter {
+profile man//man_filter {
   include <abstractions/base>
   include <abstractions/consoles>
 
@@ -97,6 +101,7 @@ profile man_filter {
   @{bin}/compress   mr,
   @{bin}/iconv      mr,
   @{bin}/lzip.lzip  mr,
+  @{bin}/lzip       mr,
   @{bin}/tr         mr,
   @{bin}/xz         mr,
 

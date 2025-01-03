@@ -34,7 +34,8 @@ profile lynx @{exec_path} {
   /etc/mime.types r,
 
   owner @{tmp}/lynxXXXX*/ rw,
-  owner @{tmp}/lynxXXXX*/*TMP.html{,.gz} rw,
+  # soon there may be .zst here as well. Maybe just give it the whole dir?
+  owner @{tmp}/lynxXXXX*/*TMP.html{,.{gz,br}} rw,
 
   include if exists <local/lynx>
 }
