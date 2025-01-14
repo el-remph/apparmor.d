@@ -10,6 +10,7 @@ include <tunables/global>
 @{exec_path} = @{bin}/inxi
 profile inxi @{exec_path} {
   include <abstractions/base>
+  include <abstractions/libmagic>
   include <abstractions/nameservice-strict>
   include <abstractions/perl>
 
@@ -69,7 +70,6 @@ profile inxi @{exec_path} {
   /etc/ r,
   /etc/inxi.conf r,
   /etc/issue r,
-  /etc/magic r,
   /etc/apt/sources.list r,
   /etc/apt/sources.list.d/{,*.list} r,
 

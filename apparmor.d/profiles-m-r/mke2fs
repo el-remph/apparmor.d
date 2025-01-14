@@ -11,6 +11,7 @@ include <tunables/global>
 profile mke2fs @{exec_path} {
   include <abstractions/base>
   include <abstractions/disks-write>
+  include <abstractions/libmagic>
   include <abstractions/user-download-strict>
 
   capability sys_rawio,
@@ -20,8 +21,6 @@ profile mke2fs @{exec_path} {
   # To check for badblocks
   @{sh_path}        rix,
   @{bin}/badblocks  rPx,
-
-  /usr/share/file/misc/magic.mgc r,
 
   /etc/mke2fs.conf r,
 

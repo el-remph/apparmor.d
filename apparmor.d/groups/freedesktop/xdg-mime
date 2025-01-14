@@ -12,6 +12,7 @@ profile xdg-mime @{exec_path} flags=(attach_disconnected) {
   include <abstractions/base>
   include <abstractions/consoles>
   include <abstractions/freedesktop.org>
+  include <abstractions/libmagic>
 
   @{exec_path} r,
 

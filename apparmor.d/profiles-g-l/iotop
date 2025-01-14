@@ -10,6 +10,7 @@ include <tunables/global>
 @{exec_path} = @{bin}/iotop
 profile iotop @{exec_path} {
   include <abstractions/base>
+  include <abstractions/libmagic>
   include <abstractions/nameservice-strict>
   include <abstractions/python>
 
@@ -22,8 +23,6 @@ profile iotop @{exec_path} {
   @{bin}/ r,
   @{bin}/file rix,
   @{bin}/python3.@{int} r,
-
-  /etc/magic r,
 
         @{PROC}/ r,
         @{PROC}/@{pids}/cmdline r,

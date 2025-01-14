@@ -11,6 +11,7 @@ include <tunables/global>
 profile mumble-overlay @{exec_path} {
   include <abstractions/base>
   include <abstractions/consoles>
+  include <abstractions/libmagic>
 
   @{exec_path} r,
   @{sh_path}        rix,
@@ -19,8 +20,6 @@ profile mumble-overlay @{exec_path} {
   @{bin}/which{,.debianutils}      rix,
 
   @{bin}/glxgears   rPx,
-
-  /etc/magic r,
 
   include if exists <local/mumble-overlay>
 }

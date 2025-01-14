@@ -12,6 +12,7 @@ profile e2fsck @{exec_path} {
   include <abstractions/base>
   include <abstractions/consoles>
   include <abstractions/disks-write>
+  include <abstractions/libmagic>
   include <abstractions/user-download-strict>
 
   capability dac_read_search,
@@ -22,8 +23,6 @@ profile e2fsck @{exec_path} {
   # To check for badblocks
   @{sh_path}        rix,
   @{bin}/badblocks  rPx,
-
-  /usr/share/file/misc/magic.mgc r,
 
   # A place for file images
   owner @{user_img_dirs}/{,**} rwk,

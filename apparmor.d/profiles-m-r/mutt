@@ -116,11 +116,11 @@ profile mutt @{exec_path} {
   profile pager {
     include <abstractions/base>
     include <abstractions/consoles>
+    include <abstractions/libmagic>
 
     @{pager_path}  mr,
 
     /usr/share/terminfo/** r,
-    /usr/share/file/misc/magic.mgc r,
 
     owner @{HOME}/ r,
     owner @{HOME}/.lesshs* rw,

@@ -11,6 +11,7 @@ include <tunables/global>
 profile jmtpfs @{exec_path} {
   include <abstractions/base>
   include <abstractions/devices-usb>
+  include <abstractions/libmagic>
 
   network netlink raw,
 
@@ -30,8 +31,6 @@ profile jmtpfs @{exec_path} {
   mount fstype={fuse,fuse.jmtpfs} -> @{HOME}/*/,
   mount fstype={fuse,fuse.jmtpfs} -> @{HOME}/*/*/,
   mount fstype={fuse,fuse.jmtpfs} -> @{user_cache_dirs}/*/*/,
-
-  /etc/magic r,
 
   /dev/fuse rw,
 

@@ -19,6 +19,7 @@ profile engrampa @{exec_path} {
   include <abstractions/desktop>
   include <abstractions/fontconfig-cache-read>
   include <abstractions/ibus>
+  include <abstractions/libmagic>
   include <abstractions/nameservice-strict>
   include <abstractions/thumbnails-cache-read>
   include <abstractions/user-download-strict>
@@ -58,7 +59,6 @@ profile engrampa @{exec_path} {
   /usr/share/engrampa/{,**} r,
   /usr/share/**.desktop r,
 
-  /etc/magic r,
   /etc/fstab r,
 
   / r,

@@ -12,6 +12,7 @@ include <tunables/global>
 profile torbrowser-start @{exec_path} {
   include <abstractions/base>
   include <abstractions/consoles>
+  include <abstractions/libmagic>
 
   @{exec_path} rm,
 
@@ -32,10 +33,6 @@ profile torbrowser-start @{exec_path} {
 
   @{lib_dirs}/abicheck         ix,
   @{lib_dirs}/firefox{,.real}  Px -> torbrowser,
-
-  /usr/share/file/** r,
-
-  /etc/magic r,
 
   owner @{lib_dirs}/.config/ibus/{,**} rw,
   owner @{lib_dirs}/.local/* rw,

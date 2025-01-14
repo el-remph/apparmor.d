@@ -9,6 +9,7 @@ include <tunables/global>
 @{exec_path} = @{bin}/ristretto
 profile ristretto @{exec_path} {
   include <abstractions/base>
+  include <abstractions/libmagic>
   include <abstractions/thumbnails-cache-read>
   include <abstractions/trash-strict>
   include <abstractions/user-read-strict>
@@ -19,9 +20,6 @@ profile ristretto @{exec_path} {
 
   @{open_path} rPx -> child-open-help,
 
-  /usr/share/file/{,**} r,
-
-  /etc/magic r,
   /etc/timezone r,
 
   owner @{user_config_dirs}/ristretto/{,**} rw,

@@ -1,0 +1,7 @@
+  abi <abi/4.0>,
+
+  /etc/magic r,
+  @{system_share_dirs}/{file/,}{misc/,}magic{,/**,.mgc} r,
+  owner @{HOME}/.magic{,.mgc} r,
+
+  include if exists <abstractions/libmagic.d>

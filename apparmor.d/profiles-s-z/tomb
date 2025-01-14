@@ -12,6 +12,7 @@ profile tomb @{exec_path} {
   include <abstractions/app/sudo>
   include <abstractions/consoles>
   include <abstractions/disks-read>
+  include <abstractions/libmagic>
   include <abstractions/nameservice-strict>
   include <abstractions/zsh>
 
@@ -84,7 +85,6 @@ profile tomb @{exec_path} {
   @{bin}/updatedb.mlocate  rPx,
   @{bin}/zramctl           rPx,
 
-  /usr/share/file/** r,
   /usr/share/terminfo/** r,
 
         @{MOUNTDIRS}/ rw,

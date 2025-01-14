@@ -12,12 +12,12 @@ profile zathura @{exec_path} {
   include <abstractions/dconf-write>
   include <abstractions/desktop>
   include <abstractions/fontconfig-cache-read>
+  include <abstractions/libmagic>
   include <abstractions/nameservice-strict>
   include <abstractions/user-read-strict>
 
   @{exec_path} mr,
 
-  /usr/share/file/{,**} r,
   /usr/share/poppler/{,**} r,
 
   /etc/xdg/{,**} r,

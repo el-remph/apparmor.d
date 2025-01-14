@@ -23,6 +23,7 @@ profile calibre @{exec_path} {
   include <abstractions/fontconfig-cache-read>
   include <abstractions/graphics>
   include <abstractions/gstreamer>
+  include <abstractions/libmagic>
   include <abstractions/nameservice-strict>
   include <abstractions/python>
   include <abstractions/qt5-compose-cache-write>
@@ -62,7 +63,6 @@ profile calibre @{exec_path} {
 
   /etc/fstab r,
   /etc/inputrc r,
-  /etc/magic r,
   /etc/mime.types r,
 
   owner @{HOME}/ r,

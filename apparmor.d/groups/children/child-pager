@@ -16,6 +16,7 @@ include <tunables/global>
 profile child-pager flags=(attach_disconnected) {
   include <abstractions/base>
   include <abstractions/consoles>
+  include <abstractions/libmagic>
 
   capability dac_override,
   capability dac_read_search,
@@ -26,7 +27,6 @@ profile child-pager flags=(attach_disconnected) {
   @{pager_path} mr,
 
   @{system_share_dirs}/terminfo/{,**} r,
-  /usr/share/file/misc/** r,
   /usr/share/nvim/{,**} r,
 
   @{HOME}/.lesshst r,

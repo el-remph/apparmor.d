@@ -10,6 +10,7 @@ include <tunables/global>
 @{exec_path} = @{bin}/speedtest{,-cli}
 profile speedtest @{exec_path} {
   include <abstractions/base>
+  include <abstractions/libmagic>
   include <abstractions/nameservice-strict>
   include <abstractions/ssl_certs>
   include <abstractions/python>
@@ -26,8 +27,6 @@ profile speedtest @{exec_path} {
   @{bin}/ r,
   @{bin}/file  rix,
   @{bin}/uname rix,
-
-  /etc/magic r,
 
   owner @{PROC}/@{pid}/fd/ r,
 

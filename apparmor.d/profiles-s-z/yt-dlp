@@ -11,6 +11,7 @@ include <tunables/global>
 profile yt-dlp @{exec_path} {
   include <abstractions/base>
   include <abstractions/consoles>
+  include <abstractions/libmagic>
   include <abstractions/nameservice-strict>
   include <abstractions/python>
   include <abstractions/ssl_certs>
@@ -32,8 +33,6 @@ profile yt-dlp @{exec_path} {
 
   @{bin}/ffmpeg  rPx,
   @{bin}/ffprobe rPx,
-
-  /etc/magic r,
 
   owner @{user_music_dirs}/{,**} rwk,
   owner @{user_videos_dirs}/{,**} rwk,
